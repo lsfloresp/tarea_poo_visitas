@@ -9,31 +9,51 @@ class AppTkinter:
         self.root = tk.Tk()
         self.root.title("Sistema de Registro de Visitantes")
         self.root.geometry("650x450")
+        self.root.configure(bg="#a9cce3")
 
         self.crear_widgets()
 
+    def validar_cedula(self, valor):
+        return valor.isdigit() or valor == ""
+
     def crear_widgets(self):
+        def crear_widgets(self):
+            # ===== ESTILO DE LA TABLA =====
+            style = ttk.Style()
+            style.theme_use("default")
+
+            style.configure("Treeview",
+                            background="#ecf0f1",
+                            foreground="black",
+                            rowheight=25,
+                            fieldbackground="#ecf0f1")
+
+            style.map("Treeview",
+                      background=[("selected", "#3498db")])
+
         # ===== FORMULARIO =====
-        tk.Label(self.root, text="Cédula").grid(row=0, column=0, padx=10, pady=5)
-        self.entry_cedula = tk.Entry(self.root)
+        tk.Label(self.root, text="Cédula", bg="#a9cce3", fg="black").grid(row=0, column=0, padx=10, pady=5)
+
+        vcmd = (self.root.register(self.validar_cedula), "%P")
+        self.entry_cedula = tk.Entry(self.root, validate="key", validatecommand=vcmd)
         self.entry_cedula.grid(row=0, column=1, padx=10, pady=5)
 
-        tk.Label(self.root, text="Nombre").grid(row=1, column=0, padx=10, pady=5)
+        tk.Label(self.root, text="Nombre", bg="#a9cce3", fg="black").grid(row=1, column=0, padx=10, pady=5)
         self.entry_nombre = tk.Entry(self.root)
         self.entry_nombre.grid(row=1, column=1, padx=10, pady=5)
 
-        tk.Label(self.root, text="Motivo").grid(row=2, column=0, padx=10, pady=5)
+        tk.Label(self.root, text="Motivo", bg="#a9cce3", fg="black").grid(row=2, column=0, padx=10, pady=5)
         self.entry_motivo = tk.Entry(self.root)
         self.entry_motivo.grid(row=2, column=1, padx=10, pady=5)
 
         # ===== BOTONES =====
-        tk.Button(self.root, text="Registrar", width=15, command=self.registrar)\
+        tk.Button(self.root, text="Registrar", width=15, bg="#27ae60", fg="white", command=self.registrar) \
             .grid(row=3, column=0, padx=10, pady=10)
 
-        tk.Button(self.root, text="Eliminar", width=15, command=self.eliminar)\
+        tk.Button(self.root, text="Eliminar", width=15, bg="#c0392b", fg="white", command=self.eliminar) \
             .grid(row=3, column=1, padx=10, pady=10)
 
-        tk.Button(self.root, text="Limpiar", width=15, command=self.limpiar)\
+        tk.Button(self.root, text="Limpiar", width=15, bg="#2980b9", fg="white", command=self.limpiar) \
             .grid(row=3, column=2, padx=10, pady=10)
 
         # ===== TABLA =====
