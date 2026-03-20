@@ -1,54 +1,78 @@
-🧾 Sistema de Registro de Visitantes
+# 🧾 Sistema de Registro de Visitantes
 
-📌 Descripción
-Esta es una aplicación de escritorio desarrollada en Python con Tkinter para la gestión de visitantes. El sistema permite registrar, visualizar, actualizar y eliminar datos, asegurando la integridad de la información mediante validaciones de longitud y tipo de dato.
+## 📌 Descripción
 
-El proyecto sigue una arquitectura modular por capas, separando la definición de datos (Modelos), la lógica de almacenamiento (Servicios) y la visualización (UI).
+Este proyecto consiste en una aplicación de escritorio desarrollada en Python utilizando Tkinter.
+El objetivo es gestionar el registro de visitantes en una oficina, permitiendo ingresar, visualizar y eliminar registros de manera sencilla.
 
-🏗️ Estructura del Proyecto
-Bash
+El sistema fue desarrollado aplicando una arquitectura modular por capas, separando la lógica del programa, los datos y la interfaz gráfica.
+
+---
+
+## 🏗️ Estructura del Proyecto
+
+```bash
 visitas_app/
 │
-├── main.py                # Punto de entrada
+├── main.py
 ├── modelos/
-│   └── visitante.py       # Clase Visitante (Dataclass)
+│   └── visitante.py
 ├── servicios/
-│   └── visita_servicio.py # Lógica de almacenamiento (Encapsulamiento)
+│   └── visita_servicio.py
 └── ui/
-    └── app_tkinter.py     # Interfaz gráfica y validaciones
+    └── app_tkinter.py
+```
 
-⚙️ Funcionalidades Implementadas
-Gestión CRUD Completa: Registro, actualización y eliminación de visitantes.
+---
 
-Validación de Cédula: Restricción técnica para permitir únicamente 10 dígitos numéricos (bloqueo de teclado al llegar al límite).
+## ⚙️ Funcionalidades
 
-Seguridad: Cuadro de diálogo para confirmar la eliminación de registros y evitar borrados accidentales.
+* Registro de visitantes mediante formulario
+* Visualización de datos en una tabla
+* Eliminación de registros seleccionados
+* Limpieza automática de campos
+* Validación para que la cédula solo acepte números y 10 digitos
+* Actualización de datos
 
-Interfaz Optimizada: * El campo Motivo tiene una longitud extendida para descripciones largas.
+---
 
-El botón Limpiar se reubicó estratégicamente junto a los campos de entrada para mayor comodidad.
+## 🧠 Tecnologías utilizadas
 
-Los botones de acción principal (Registrar, Actualizar, Eliminar) están alineados en una sola fila.
+* Python 3
+* Tkinter
+* ttk (Treeview)
 
-Limpieza Automática: Los campos de texto se vacían automáticamente después de registrar, actualizar o eliminar un usuario.
+---
 
-🧠 Conceptos de POO Aplicados
-Encapsulamiento: Uso de atributos privados (__visitantes) para proteger la integridad de la lista.
+## ▶️ Cómo ejecutar el programa
 
-Inyección de Dependencias: La interfaz gráfica recibe el servicio de lógica como un parámetro en su constructor.
+1. Abrir la terminal en la carpeta del proyecto
 
-Manejo de Eventos: Uso de bind para cargar datos de la tabla a los campos de texto con un solo clic.
+2. Ejecutar el siguiente comando:
 
-▶️ Cómo ejecutar el programa
-Abre una terminal en la carpeta raíz del proyecto.
-
-Ejecuta el comando:
-
-Bash
+```bash
 python -m visitas_app.main
+```
 
-👨‍💻 Autor
+---
+
+## 🎯 Aspectos técnicos aplicados
+
+En este proyecto se aplicaron los siguientes conceptos:
+
+* Programación Orientada a Objetos (POO)
+* Encapsulamiento
+* Inyección de dependencias
+* Arquitectura por capas (modelo, servicio, interfaz)
+
+---
+
+## 👨‍💻 Autor
+
 Luis Santiago Flores Piña
 
-🚀 Observaciones
-Esta versión incluye mejoras en la Experiencia de Usuario (UX), como el enfoque automático en el campo de cédula tras limpiar y la validación estricta de campos obligatorios antes de procesar cualquier cambio.
+---
+
+## 🚀 Observaciones
+
+Este sistema puede mejorarse agregando nuevas funcionalidades como edición de registros, validaciones más avanzadas o mejoras en la interfaz gráfica.
